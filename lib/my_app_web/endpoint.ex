@@ -22,7 +22,7 @@ defmodule MyAppWeb.Endpoint do
   end
 
   plug Plug.RequestId
-  plug Plug.Logger
+  plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
@@ -38,7 +38,7 @@ defmodule MyAppWeb.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_my_app_key",
-    signing_salt: "6+vkP9rY"
+    signing_salt: "MnMbMSM6"
 
   plug Corsica,
     origins: "http://localhost:8080",

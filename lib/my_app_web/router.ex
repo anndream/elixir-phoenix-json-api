@@ -29,7 +29,8 @@ defmodule MyAppWeb.Router do
     else
       conn
       |> put_status(:unauthorized)
-      |> render(MyAppWeb.ErrorView, "401.json", message: "Unauthenticated user")
+      |> put_view(MyAppWeb.ErrorView)
+      |> render("401.json", message: "Unauthenticated user")
       |> halt()
     end
   end
